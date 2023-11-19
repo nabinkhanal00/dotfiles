@@ -42,8 +42,9 @@ right = [
 Z = { Z = ":wq", Q = ":q" }
 G = "goto_file_end"
 
-
 [keys.normal.space]
 s = ":w"
-o = { s = "symbol_picker" }
+f = { f = "file_picker" , n = ":new", g="global_search"}
+o = { s = "symbol_picker", g = ":sh tmux popup -d \"#{pane_current_path}\" -xC -yC -w80% -h80% -E lazygit", d = ":sh tmux popup -d \"#{pane_current_path}\" -xC -yC -w80% -h80% -E lazydocker" }
 O = "no_op"
+b={ b = "goto_previous_buffer", n = "goto_next_buffer", o=":buffer-close-others", e="buffer_picker", d=":buffer-close"}
