@@ -1,0 +1,49 @@
+theme = "catppuccin_mocha"
+
+[editor]
+true-color = true
+file-picker.hidden = false
+line-number = "relative"
+cursorline = true
+color-modes = true
+auto-pairs = true
+bufferline = "multiple"
+scroll-lines = 1
+workspace-lsp-roots = [".project", ".git", "package.json", ".venv", "build"]
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.indent-guides]
+render = true
+
+[editor.lsp]
+display-messages = true
+display-inlay-hints = true
+
+[editor.statusline]
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+left = ["mode", "spinner", "file-type", "file-name"]
+center = []
+separator = "|"
+right = [
+	"position",
+	"spacer",
+	"diagnostics",
+	"workspace-diagnostics",
+	"version-control",
+]
+
+[keys.normal]
+Z = { Z = ":wq", Q = ":q" }
+G = "goto_file_end"
+
+
+[keys.normal.space]
+s = ":w"
+o = { s = "symbol_picker" }
+O = "no_op"
