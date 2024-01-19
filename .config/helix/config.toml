@@ -2,17 +2,19 @@ theme = "catppuccin_mocha"
 
 [editor]
 true-color = true
-# file-picker.hidden = false
+file-picker.hidden = true
 line-number = "relative"
 cursorline = true
 color-modes = true
 auto-pairs = true
-# bufferline = "always"
+auto-save = true
+auto-completion = false
 completion-replace = true
 auto-format = true
 scroll-lines = 1
 workspace-lsp-roots = [".project", ".git", "package.json", ".venv", "build"]
 soft-wrap.enable = true
+preview-completion-insert = false
 
 [editor.cursor-shape]
 insert = "bar"
@@ -25,6 +27,9 @@ render = true
 [editor.lsp]
 display-messages = true
 display-inlay-hints = true
+
+[editor.smart-tab]
+supersede-menu = true
 
 [editor.statusline]
 mode.normal = "NORMAL"
@@ -79,9 +84,23 @@ Y = [
 [keys.select]
 g = { c = "toggle_comments" }
 
+"A-k" = [
+	"extend_to_line_bounds",
+	"delete_selection",
+	"move_line_up",
+	"paste_before",
+]
+"A-j" = [
+	"extend_to_line_bounds",
+	"delete_selection",
+	"move_line_down",
+	"paste_before",
+]
+
 [keys.insert]
 C-h = "delete_word_backward"
 "C-backspace" = "delete_word_backward"
+"C-space" = "completion"
 
 [keys.normal.space]
 s = ":w"
