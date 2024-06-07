@@ -1,0 +1,72 @@
+[[language]]
+name = "go"
+auto-format = true
+formatter = { command = "goimports" }
+
+[[language]]
+name = "sql"
+language-servers = [ "sql-language-server" ]
+
+[[language]]
+name = "html"
+indent={tab-width=4,unit="    "}
+language-servers = [ "vscode-html-language-server", "tailwindcss-ls" ]
+
+[[language]]
+name = "css"
+indent={tab-width=4,unit="    "}
+language-servers = [ "vscode-css-language-server", "tailwindcss-ls" ]
+
+
+[[language]]
+name = "javascript"
+indent={tab-width=4,unit="    "}
+language-servers = ["typescript-language-server"]
+
+[[language]]
+name = "jsx"
+indent={tab-width=4,unit="    "}
+language-servers = ["typescript-language-server", "tailwindcss-ls" ]
+
+[[language]]
+name = "tsx"
+indent={tab-width=4,unit="    "}
+language-servers = [ "typescript-language-server", "tailwindcss-ls" ]
+
+[[language]]
+name = "svelte"
+indent={tab-width=4,unit="    "}
+language-servers = [ "svelteserver", "tailwindcss-ls" ]
+
+[[language]]
+name = "yaml"
+auto-format = true
+formatter = { command = 'prettier', args = ["--parser", "yaml"] }
+
+
+[language-server.rust-analyzer.config.check]
+command = "clippy"
+
+[[language]]
+name="c"
+indent={tab-width=4,unit="\t"}
+auto-format=true
+formatter = { command = "clang-format" }
+
+[language.debugger]
+name = "lldb-vscode"
+transport = "stdio"
+command = "lldb-vscode"
+
+
+[[language.debugger.templates]]
+name = "binary"
+request = "launch"
+completion = [ { name = "binary", completion = "filename" } ]
+args = { program = "{0}" }
+
+[[language]]
+name = "python"
+[language.formatter]
+command = "black"
+args = ["--line-length", "88", "--quiet", "-"]
