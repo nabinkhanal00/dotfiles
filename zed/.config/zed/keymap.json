@@ -1,0 +1,11 @@
+[
+    {
+        "context": "Editor",
+        "bindings": {}
+    },
+    {
+        "bindings": {
+            "cmd-b": "workspace::ToggleRightDock"
+        }
+    }
+]
