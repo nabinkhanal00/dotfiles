@@ -1,5 +1,3 @@
-vim.g.mapleader = " "
-
 local default_options = {
 	backup = false, -- creates a backup file
 	cmdheight = 1, -- more space in the neovim command line for displaying messages
@@ -36,6 +34,9 @@ local default_options = {
 	showcmd = false,
 	ruler = false,
 	laststatus = 3,
+	guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
+
+
 }
 for k, v in pairs(default_options) do
 	vim.opt[k] = v

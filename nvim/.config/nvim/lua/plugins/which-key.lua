@@ -1,5 +1,5 @@
 local opts = {
-	mode = "n", -- NORMAL mode
+	mode = "n",  -- NORMAL mode
 	prefix = "<leader>",
 	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
 	silent = true, -- use `silent` when creating keymaps
@@ -10,10 +10,10 @@ local opts = {
 local mappings = {
 	["<space>"] = { "<cmd>Telescope find_files hidden=true no_ignore=true<cr>", "Find Files" },
 	["/"] = { "<cmd>Telescope live_grep hidden=true no_ignore=true<cr>", "Find Text" },
-	["."] = { "<cmd>Neotree<CR>", "File Explorer" },
+	["."] = { "<cmd>Neotree toggle<CR>", "File Explorer" },
 	["s"] = { "<cmd>w!<CR>", "Save File" },
 	["q"] = { "<cmd>q!<CR>", "Quit Neovim" },
-	[";"] = { "<cmd>source $MYVIMRC<CR>", "Reload nvim" },
+	-- [";"] = { "<cmd>source $MYVIMRC<CR>", "Reload nvim" },
 
 	g = {
 		name = "Git",
@@ -51,20 +51,17 @@ local mappings = {
 
 	c = {
 		name = "Code",
-		h = { "<cmd>nohlsearch<CR>", "No Highlight" },
-		["/"] = { "gcc", "Comment" },
 	},
 	r = { "<cmd><cr>", "Run" },
 	b = {
 		name = "Buffers",
-		d = { "<cmd>BufferClose<cr>", "Delete" },
-		D = { "<cmd>BufferCloseAllButCurrentOrPinned<cr>", "Delete Other" },
-		p = { "<cmd>BufferPin<cr>", "Pin" },
-		n = { "<cmd>BufferNext<cr>", "Right" },
-		L = { "<cmd>BufferCloseBuffersRight<cr>", "Delete Right" },
-		H = { "<cmd>BufferCloseBuffersLeft<cr>", "Delete Left" },
-		b = { "<cmd>BufferPrevious<cr>", "Left" },
-		t = { "<cmd>lua require('telescope.builtin').buffers()<cr>", "List" },
+		d = { "<cmd>bd<cr>", "Delete" },
+		D = { "<cmd>BufferLineCloseOthers<cr>", "Delete Other" },
+		p = { "<cmd>BufferLineCyclePrev<cr>", "Previous" },
+		n = { "<cmd>BufferLineCycleNext<cr>", "Next" },
+		L = { "<cmd>BufferLineCloseRight<cr>", "Delete Right" },
+		H = { "<cmd>BufferLineCloseLeft<cr>", "Delete Left" },
+		b = { "<cmd>lua require('telescope.builtin').buffers()<cr>", "List" },
 	},
 
 	w = {
@@ -88,7 +85,6 @@ local mappings = {
 		["="] = { "<C-w>=", "Balance Window" },
 	},
 
-	p = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 	f = {
 		name = "Find",
 		f = { "<cmd>lua require('telescope.builtin').find_files()<cr>", "Files" },
@@ -128,14 +124,14 @@ local mappings = {
 	},
 }
 return {
-  "folke/which-key.nvim",
-  event = "VeryLazy",
-  init = function()
-	local wk = require('which-key')
-    vim.o.timeout = true
-    vim.o.timeoutlen = 300
-	wk.register(mappings, opts)
-  end,
-  opts = {
-  }
+	"folke/which-key.nvim",
+	event = "VeryLazy",
+	init = function()
+		local wk = require('which-key')
+		vim.o.timeout = true
+		vim.o.timeoutlen = 300
+		wk.register(mappings, opts)
+	end,
+	opts = {
+	}
 }
