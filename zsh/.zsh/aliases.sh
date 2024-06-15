@@ -16,3 +16,4 @@ alias lS='eza -1'                                                      # one col
 alias lt='eza --tree --level=2'
 
 alias cat='bat'
+alias vim='nvim'
